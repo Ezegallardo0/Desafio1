@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import '../styles/cargar.css'
 
-function CargarProductos({setProductos}) {
-  const API = 'https://699c9cb4110b5b738cc33411.mockapi.io/products';
+function CargarProductos({ productos, setProductos }) {
 
   const [nombre, setNombre] = useState('');
   const [sku, setSku] = useState('');
@@ -11,62 +10,46 @@ function CargarProductos({setProductos}) {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!nombre.trim() || !sku.trim() || !stock || !precio) {
       setError('Deberás completar todos los campos.');
+      setSuccess("");
       return;
     }
 
     if (Number(stock) < 0 || Number(precio) < 0) {
       setError("El Stock y el Precio no pueden ser negativos.");
+      setSuccess("");
       return;
     }
 
-    try {
-      const check = await fetch(API);
-      const data = await check.json();
-
-      const existe = data.some(
-        (producto) => producto.sku.trim().toLowerCase () === sku.trim().toLocaleLowerCase()
-      )
-      if (existe) {
-        setError("El SKU ya existe. Debe ser único.");
-        return;
-      }
-
-      const response = await fetch(API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nombre: nombre.trim(),
-          sku: sku.trim(),
-          stock: Number(stock),
-          precio: Number(precio),
-        }),
-      });
-      const nuevoProducto =await response.json();
-      setProductos((prev) => [...prev, nuevoProducto])
-
-      if (!response.ok) throw new Error("Error al crear producto.");
-
-      setNombre('');
-      setSku('');
-      setStock('');
-      setPrecio('');
-      setError('');
-
-    } catch (error) {
-      console.error(error);
-      setError("Error al guardar producto.");
+    const existe = productos.some(
+      (producto) =>
+        producto.sku.trim().toLowerCase() === sku.trim().toLowerCase()
+    );
+    if (existe) {
+      setError("El Sku ya existe. Debe ser unico.")
+      setSuccess("");
+      return;
     }
-    setSuccess("Producto agregado correctamente ✅");
-    setError("");
-  };
+    const nuevoProducto = {
+      id: crypto.randomUUID(),
+      nombre: nombre.trim(),
+      sku: sku.trim(),
+      stock: Number(stock),
+      precio: Number(precio),
+    };
+    setProductos((prev) => [...prev, nuevoProducto]);
 
+    setNombre("")
+    setSku("");
+    setStock("");
+    setPrecio("");
+    setError("");
+    setSuccess("Producto agregado correctamente ✅");
+  }
   return (
     <div className="Container">
       <h1 className="text-center">Cargar Producto</h1>

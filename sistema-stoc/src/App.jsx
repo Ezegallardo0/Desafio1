@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import DetalleProducto from "./components/detalle";
 import Menu from "./components/nav";
-import Buscador from "./components/search";
 import CargarProductos from "./pages/cargar";
 import EditarProducto from "./pages/editar";
 import Home from "./pages/home";
@@ -10,24 +9,16 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
 
-  const [productos, setProductos] = useState([]);
   const [search, setSearch] = useState("");
-  const API = "https://699c9cb4110b5b738cc33411.mockapi.io/products";
-
+  const [productos, setProductos] = useState(() => {
+    const data = localStorage.getItem("productos");
+    return data ? JSON.parse(data) : [];
+  });
 
   useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const res = await fetch(API);
-        const data = await res.json();
-        setProductos(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    localStorage.setItem("productos", JSON.stringify(productos));
+  }, [productos]);
 
-    fetchProductos();
-  }, []);
 
   return (
     <main>
