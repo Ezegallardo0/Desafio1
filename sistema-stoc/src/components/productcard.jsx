@@ -34,7 +34,6 @@ function Card({ producto, onDelete }) {
                     >
                         Eliminar
                     </button>
-
                     <Link
                         className="edit"
                         to={`/editarproducto/${producto.id}`}

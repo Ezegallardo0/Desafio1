@@ -1,0 +1,44 @@
+.stock-container {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.stock-container h3 {
+  margin-bottom: 15px;
+}
+
+.stock-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stock-form select,
+.stock-form input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.stock-form button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #2c7be5;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stock-form button:hover {
+  background-color: #1a68d1;
+}
+
+.stock-error {
+  color: red;
+  margin-bottom: 10px;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../components/productcard";
+import Card from "./productcard";
 import { Link } from "react-router-dom";
 import "../styles/home.css"
 
