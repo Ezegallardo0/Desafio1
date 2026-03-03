@@ -136,7 +136,9 @@ sistema-stoc/
 }
 ```
 
-## ⚙️ Validaciones
+---
+
+## ✅ Validaciones
 
 - ✔️ **Nombre**: Requerido, máx 100 caracteres
 - ✔️ **SKU**: Requerido, único en el sistema, máx 50 caracteres
@@ -144,34 +146,44 @@ sistema-stoc/
 - ✔️ **Precio**: Opcional, número ≥ 0 si se proporciona
 - ✔️ **Movimientos**: Cantidad positiva, no permite salida mayor al stock disponible
 
-## ��� Decisiones de Diseño
+---
 
-1. **localStorage en lugar de DB**: Simplifica el proyecto pero permite persistencia sin backend
-2. **UUIDs para IDs**: Asegura unicidad incluso offline
-3. **Context/Props Drilling**: Gestión de estado simple y clara sin librerías adicionales
-4. **CSS puro**: Sin dependencias de frameworks CSS, máximo control visual
-5. **Componentes funcionales**: Aprovecha React hooks para código más limpio
+## 🎯 Decisiones de Diseño
 
-## ��� Consideraciones Importantes
+1. **📱 localStorage en lugar de DB**: Simplifica el proyecto pero permite persistencia sin backend
+2. **🆔 UUIDs para IDs**: Asegura unicidad incluso offline
+3. **🎯 Context/Props Drilling**: Gestión de estado simple y clara sin librerías adicionales
+4. **🎨 CSS puro**: Sin dependencias de frameworks CSS, máximo control visual
+5. **⚛️ Componentes funcionales**: Aprovecha React hooks para código más limpio
 
-- Los datos se guardan localmente en el navegador (localStorage)
-- Borrar datos del navegador eliminará todo el inventario
-- Para proyectos grandes, migra a una base de datos real
-- Soporta navegadores modernos (Chrome, Firefox, Safari, Edge)
+---
 
-## ��� Mejoras Futuras
+## ⚠️ Consideraciones Importantes
 
-- ��� Versión mobile optimizada
-- ��� Gráficos y reportes de movimientos
-- ��� Sistema de usuarios y roles
-- ��� Autenticación y seguridad
+- 📍 Los datos se guardan localmente en el navegador (localStorage)
+- 🗑️ Borrar datos del navegador eliminará todo el inventario
+- 📈 Para proyectos grandes, migra a una base de datos real
+- 🌍 Soporta navegadores modernos (Chrome, Firefox, Safari, Edge)
+
+---
+
+## 🚧 Mejoras Futuras
+
+- 📱 Versión mobile optimizada
+- 📊 Gráficos y reportes de movimientos
+- 👥 Sistema de usuarios y roles
+- 🔐 Autenticación y seguridad
 - ☁️ Sincronización en la nube
-- ��� Notificaciones de stock bajo
+- 🔔 Notificaciones de stock bajo
 
-## ��� Licencia
+---
+
+## 📄 Licencia
 
 Proyecto - Libre para uso personal y educativo.
 
 ---
 
-**¿Dudas?** Revisa los formularios y valida que todos los campos requeridos estén completos. El sistema te mostrará mensajes claros de error si algo no es válido.
+**❓ ¿Dudas?** Revisa los formularios y valida que todos los campos requeridos estén completos. El sistema te mostrará mensajes claros de error si algo no es válido.
+
+✨ **¡Gracias por usar Sistema Stock!** ✨
