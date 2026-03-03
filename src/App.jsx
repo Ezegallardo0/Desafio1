@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import DetalleProducto from "./components/detalle";
-import Menu from "./components/nav";
-import CargarProductos from "./components/cargar";
-import ProductEditForm from "./components/editar";
-import Home from "./components/home";
+import DetalleProducto from "./components/detalle.jsx";
+import Menu from "./components/Nav.jsx";
+import CargarProductos from "./components/cargar.jsx";
+import ProductEditForm from "./components/editar.jsx";
+import Home from "./components/home.jsx";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 
