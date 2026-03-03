@@ -71,6 +71,18 @@
   margin-right: 10px;
 }
 
+@media (max-width: 700px) {
+  .button-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+  }
+  .nav-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
 .titulo {
   font-size: 3.5rem;
   font-weight: 800;
@@ -96,8 +108,9 @@
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: 15px;
+  gap: 12px;
+  margin-left: 20px;
+  position: relative;
 }
 
 .nav-controls label {
@@ -106,11 +119,12 @@
 }
 
 .nav-controls select {
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
   border: none;
   background: #1c222b;
   color: #f0efef;
+  font-size: 14px;
 }
 
 .button.small {
@@ -121,8 +135,37 @@
   background: #22c55e;
   color: white;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .button.small:hover {
   background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #1c222b;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.dropdown-content .button.small {
+  width: 100%;
+}
+
+.button.small:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
 }

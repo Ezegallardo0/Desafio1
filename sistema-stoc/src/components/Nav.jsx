@@ -2,9 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import "../styles/nav.css";
 import { Link } from "react-router";
 
-function Menu({ search, setSearch, filterLowStock, setFilterLowStock, sortOption, setSortOption, productos, setProductos }) {
+function Menu({ search, setSearch, productos, setProductos }) {
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const buscadorRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -58,65 +59,60 @@ function Menu({ search, setSearch, filterLowStock, setFilterLowStock, sortOption
           className="button search-btn"
           onClick={() => setMostrarBuscador(!mostrarBuscador)}
         >
-        </button>
-        {/* filtro y orden */}
-        <div className="nav-controls">
-          <label>
-            <input
-              type="checkbox"
-              checked={filterLowStock}
-              onChange={(e) => setFilterLowStock(e.target.checked)}
-            />
-            Stock bajo
-          </label>
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
+          <svg
+            className="icon"
+            stroke="currentColor"
+            fill="none"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            height="3em"
+            width="3em"
           >
-            <option value="none">Orden</option>
-            <option value="name">Nombre</option>
-            <option value="stock">Stock</option>
-          </select>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+        <div className="dropdown">
           <button
             className="button small"
-            onClick={() => {
-              const json = JSON.stringify(productos, null, 2);
-              window.prompt("Copiar datos JSON", json);
-            }}
-          >Exportar</button>
-          <button
-            className="button small"
-            onClick={() => {
-              const text = window.prompt("Pegar JSON para importar");
-              try {
-                const data = JSON.parse(text);
-                if (Array.isArray(data)) {
-                  setProductos(data);
-                } else {
-                  alert("Formato inválido");
-                }
-              } catch (err) {
-                alert("JSON inválido");
-              }
-            }}
-          >Importar</button>
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Más
+          </button>
+          {menuOpen && (
+            <div className="dropdown-content">
+              <button
+                className="button small"
+                onClick={() => {
+                  const json = JSON.stringify(productos, null, 2);
+                  window.prompt("Copiar datos JSON", json);
+                  setMenuOpen(false);
+                }}
+              >Exportar</button>
+              <button
+                className="button small"
+                onClick={() => {
+                  const text = window.prompt("Pegar JSON para importar");
+                  try {
+                    const data = JSON.parse(text);
+                    if (Array.isArray(data)) {
+                      setProductos(data);
+                    } else {
+                      alert("Formato inválido");
+                    }
+                  } catch (err) {
+                    alert("JSON inválido");
+                  }
+                  setMenuOpen(false);
+                }}
+              >Importar</button>
+            </div>
+          )}
         </div>
-        <svg
-          className="icon"
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          height="3em"
-          width="3em"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-      </button>
+      
       <button className="button">
         <Link to="/cargarproducto">
           <svg

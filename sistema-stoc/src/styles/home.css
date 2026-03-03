@@ -4,6 +4,28 @@
   gap: 20px;               
   margin-top: 20px;
 }
+.home-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.home-controls label {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.home-controls select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1c222b;
+  color: white;
+  font-size: 14px;
+}
 .home-header {
   display: flex;
   flex-direction: column;   /* uno debajo del otro */

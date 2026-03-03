@@ -62,6 +62,24 @@ function Home({ productos, setProductos, search, filterLowStock, sortOption }) {
             </span>
           </Link>
 
+          <div className="home-controls">
+            <label>
+              <input
+                type="checkbox"
+                checked={filterLowStock}
+                onChange={(e) => setFilterLowStock(e.target.checked)}
+              />
+              Stock bajo
+            </label>
+            <select
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+            >
+              <option value="none">Orden</option>
+              <option value="name">Nombre</option>
+              <option value="stock">Stock</option>
+            </select>
+          </div>
         </div>
       </header>
       {productosFiltrados.length === 0 ? (
