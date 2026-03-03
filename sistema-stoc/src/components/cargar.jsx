@@ -13,14 +13,20 @@ function CargarProductos({ productos, setProductos }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!nombre.trim() || !sku.trim() || !stock || !precio) {
-      setError('Deberás completar todos los campos.');
+    if (!nombre.trim() || !sku.trim() || !stock) {
+      setError('Nombre, SKU y Stock son obligatorios.');
       setSuccess("");
       return;
     }
 
-    if (Number(stock) < 0 || Number(precio) < 0) {
-      setError("El Stock y el Precio no pueden ser negativos.");
+    if (Number(stock) < 0 || !Number.isInteger(Number(stock))) {
+      setError("El Stock debe ser un número entero positivo.");
+      setSuccess("");
+      return;
+    }
+
+    if (Number(precio) && Number(precio) < 0) {
+      setError("El Precio no puede ser negativo.");
       setSuccess("");
       return;
     }

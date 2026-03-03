@@ -9,7 +9,8 @@ function Home({ productos, setProductos, search }) {
   const [productoAEliminar, setProductoAEliminar] = useState(null);
 
   const productosFiltrados = productos.filter((producto) =>
-    producto.nombre?.toLowerCase().includes(search.toLowerCase())
+    producto.nombre?.toLowerCase().includes(search.toLowerCase()) ||
+    producto.sku?.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleDelete = (id) => {
@@ -25,7 +26,7 @@ function Home({ productos, setProductos, search }) {
 
         <div className="home-buttons">
 
-          <Link to="/cargarProducto" className="btn btn2">
+          <Link to="/cargarproducto" className="btn btn2">
             <span className="btn__text">Cargar</span>
 
             <span className="btn__icon">

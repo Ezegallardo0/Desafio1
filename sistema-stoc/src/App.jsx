@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DetalleProducto from "./components/detalle";
 import Menu from "./components/nav";
 import CargarProductos from "./components/cargar";
-import EditarProducto from "./components/editar";
+import ProductEditForm from "./components/editar";
 import Home from "./components/home";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
@@ -64,7 +64,7 @@ function App() {
             search={search} />
         } />
         <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
-        <Route path="/editarproducto/:id" element={<EditarProducto productos={productos} setProductos={setProductos} />} />
+        <Route path="/editar/:id" element={<ProductEditForm  productos={productos} setProductos={setProductos} />} />
         <Route path="/producto/:id" element={
           <DetalleProducto
             productos={productos}

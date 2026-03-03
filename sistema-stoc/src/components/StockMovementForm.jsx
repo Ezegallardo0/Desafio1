@@ -7,7 +7,7 @@ function StockMovementForm({ producto, moverStock }) {
     const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
-        e.preventDefaul();
+        e.preventDefault();
         const num = Number(cantidad);
         if (!num || num <= 0) {
             setError("la cantidad debe ser mayor a 0.");

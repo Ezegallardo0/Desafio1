@@ -195,3 +195,78 @@
     transform: translateY(0);
   }
 }
+
+.historial-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.historial-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #38bdf8;
+}
+
+.sin-movimientos {
+  opacity: 0.6;
+  font-style: italic;
+  padding: 15px;
+  text-align: center;
+}
+
+.historial-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movimiento {
+  background: #0f172a;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  border-left: 4px solid #38bdf8;
+}
+
+.movimiento.entrada {
+  border-left: 4px solid #22c55e;
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.movimiento.salida {
+  border-left: 4px solid #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.tipo-badge {
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.movimiento.entrada .tipo-badge {
+  color: #22c55e;
+}
+
+.movimiento.salida .tipo-badge {
+  color: #ef4444;
+}
+
+.cantidad {
+  flex: 1;
+  opacity: 0.9;
+}
+
+.fecha {
+  opacity: 0.6;
+  font-size: 12px;
+  white-space: nowrap;
+}
