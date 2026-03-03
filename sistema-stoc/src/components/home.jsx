@@ -3,7 +3,7 @@ import Card from "./productcard";
 import { Link } from "react-router-dom";
 import "../styles/home.css"
 
-function Home({ productos, setProductos, search, filterLowStock, sortOption }) {
+function Home({ productos, setProductos, search, filterLowStock, setFilterLowStock, sortOption, setSortOption }) {
 
 
   const [productoAEliminar, setProductoAEliminar] = useState(null);

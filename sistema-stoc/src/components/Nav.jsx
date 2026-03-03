@@ -103,7 +103,7 @@ function Menu({ search, setSearch, productos, setProductos }) {
                     } else {
                       alert("Formato inválido");
                     }
-                  } catch (err) {
+                  } catch {
                     alert("JSON inválido");
                   }
                   setMenuOpen(false);

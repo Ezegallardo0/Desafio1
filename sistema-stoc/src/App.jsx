@@ -60,10 +60,6 @@ function App() {
       <Menu
         search={search}
         setSearch={setSearch}
-        filterLowStock={filterLowStock}
-        setFilterLowStock={setFilterLowStock}
-        sortOption={sortOption}
-        setSortOption={setSortOption}
         productos={productos}
         setProductos={setProductos}
       />
@@ -74,7 +70,9 @@ function App() {
             setProductos={setProductos}
             search={search}
             filterLowStock={filterLowStock}
+            setFilterLowStock={setFilterLowStock}
             sortOption={sortOption}
+            setSortOption={setSortOption}
           />
         } />
         <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
