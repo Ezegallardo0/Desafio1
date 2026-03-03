@@ -3,15 +3,29 @@ import Card from "./productcard";
 import { Link } from "react-router-dom";
 import "../styles/home.css"
 
-function Home({ productos, setProductos, search }) {
+function Home({ productos, setProductos, search, filterLowStock, sortOption }) {
 
 
   const [productoAEliminar, setProductoAEliminar] = useState(null);
 
-  const productosFiltrados = productos.filter((producto) =>
+  let productosFiltrados = productos.filter((producto) =>
     producto.nombre?.toLowerCase().includes(search.toLowerCase()) ||
     producto.sku?.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (filterLowStock) {
+    productosFiltrados = productosFiltrados.filter(p => p.stock <= 5);
+  }
+
+  if (sortOption === "name") {
+    productosFiltrados = [...productosFiltrados].sort((a, b) =>
+      a.nombre.localeCompare(b.nombre)
+    );
+  } else if (sortOption === "stock") {
+    productosFiltrados = [...productosFiltrados].sort((a, b) =>
+      a.stock - b.stock
+    );
+  }
 
   const handleDelete = (id) => {
     setProductos(prev =>

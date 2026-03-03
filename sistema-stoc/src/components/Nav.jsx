@@ -2,28 +2,28 @@ import React, { useState, useRef, useEffect } from "react";
 import "../styles/nav.css";
 import { Link } from "react-router";
 
-function Menu({ search, setSearch }) {
+function Menu({ search, setSearch, filterLowStock, setFilterLowStock, sortOption, setSortOption, productos, setProductos }) {
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
-const buscadorRef = useRef(null);
+  const buscadorRef = useRef(null);
 
   useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (
-      buscadorRef.current &&
-      !buscadorRef.current.contains(event.target)
-    ) {
-      setMostrarBuscador(false);
+    const handleClickOutside = (event) => {
+      if (
+        buscadorRef.current &&
+        !buscadorRef.current.contains(event.target)
+      ) {
+        setMostrarBuscador(false);
+      }
+    };
+
+    if (mostrarBuscador) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
-  };
 
-  if (mostrarBuscador) {
-    document.addEventListener("mousedown", handleClickOutside);
-  }
-
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [mostrarBuscador]);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mostrarBuscador]);
 
   return (
     <>
@@ -58,42 +58,85 @@ const buscadorRef = useRef(null);
           className="button search-btn"
           onClick={() => setMostrarBuscador(!mostrarBuscador)}
         >
+        </button>
+        {/* filtro y orden */}
+        <div className="nav-controls">
+          <label>
+            <input
+              type="checkbox"
+              checked={filterLowStock}
+              onChange={(e) => setFilterLowStock(e.target.checked)}
+            />
+            Stock bajo
+          </label>
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="none">Orden</option>
+            <option value="name">Nombre</option>
+            <option value="stock">Stock</option>
+          </select>
+          <button
+            className="button small"
+            onClick={() => {
+              const json = JSON.stringify(productos, null, 2);
+              window.prompt("Copiar datos JSON", json);
+            }}
+          >Exportar</button>
+          <button
+            className="button small"
+            onClick={() => {
+              const text = window.prompt("Pegar JSON para importar");
+              try {
+                const data = JSON.parse(text);
+                if (Array.isArray(data)) {
+                  setProductos(data);
+                } else {
+                  alert("Formato inválido");
+                }
+              } catch (err) {
+                alert("JSON inválido");
+              }
+            }}
+          >Importar</button>
+        </div>
+        <svg
+          className="icon"
+          stroke="currentColor"
+          fill="none"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          height="3em"
+          width="3em"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </button>
+      <button className="button">
+        <Link to="/cargarproducto">
           <svg
             className="icon"
             stroke="currentColor"
             fill="none"
             strokeWidth="2"
             viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             height="3em"
             width="3em"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
           </svg>
-        </button>
-        <button className="button">
-          <Link to="/cargarproducto">
-            <svg
-              className="icon"
-              stroke="currentColor"
-              fill="none"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              height="3em"
-              width="3em"
-            >
-              <circle cx="9" cy="21" r="1" />
-              <circle cx="20" cy="21" r="1" />
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-            </svg>
-          </Link>
-        </button>
-      </div>
+        </Link>
+      </button>
+    </div >
     </>
   );
 }

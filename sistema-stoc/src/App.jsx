@@ -10,6 +10,8 @@ import { Route, Routes } from "react-router-dom";
 function App() {
 
   const [search, setSearch] = useState("");
+  const [filterLowStock, setFilterLowStock] = useState(false);
+  const [sortOption, setSortOption] = useState("none");
   const [historial, setHistorial] = useState(() => {
     const data = localStorage.getItem("historial");
     return data ? JSON.parse(data) : [];
@@ -55,13 +57,25 @@ function App() {
 
   return (
     <main>
-      <Menu search={search} setSearch={setSearch} />
+      <Menu
+        search={search}
+        setSearch={setSearch}
+        filterLowStock={filterLowStock}
+        setFilterLowStock={setFilterLowStock}
+        sortOption={sortOption}
+        setSortOption={setSortOption}
+        productos={productos}
+        setProductos={setProductos}
+      />
       <Routes>
         <Route path="/" element={
           <Home
             productos={productos}
             setProductos={setProductos}
-            search={search} />
+            search={search}
+            filterLowStock={filterLowStock}
+            sortOption={sortOption}
+          />
         } />
         <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
         <Route path="/editar/:id" element={<ProductEditForm  productos={productos} setProductos={setProductos} />} />

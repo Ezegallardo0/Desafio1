@@ -92,3 +92,37 @@
   z-index: 2;
   margin-left: -80px;
 }
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+
+.nav-controls label {
+  color: #f0efef;
+  font-size: 14px;
+}
+
+.nav-controls select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  background: #1c222b;
+  color: #f0efef;
+}
+
+.button.small {
+  width: auto;
+  height: auto;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #22c55e;
+  color: white;
+  font-size: 12px;
+}
+
+.button.small:hover {
+  background: #16a34a;
+}
