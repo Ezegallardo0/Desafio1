@@ -7,9 +7,13 @@ function Card({ producto, onDelete }) {
 
                 <span className="pricing">
                     <span>
+                        {/* always show two decimals and use US style separators */}
                         ${producto.precio
-                            ? Number(producto.precio).toLocaleString("es-AR")
-                            : "0"}
+                            ? Number(producto.precio).toLocaleString("en-US", {
+                                  minimumFractionDigits: 2,
+                                  maximumFractionDigits: 2,
+                              })
+                            : "0.00"}
                     </span>
                 </span>
 

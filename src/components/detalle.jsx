@@ -23,7 +23,11 @@ function DetalleProducto({productos, historial, moverStock}) {
         </p>
 
         <p className="detalle-precio">
-          Precio: ${producto.precio}
+          Precio: $
+          {Number(producto.precio).toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
         </p>
 
         <StockMovementForm

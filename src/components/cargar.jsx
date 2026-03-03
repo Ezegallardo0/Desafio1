@@ -25,7 +25,9 @@ function CargarProductos({ productos, setProductos }) {
       return;
     }
 
-    const precioNum = parseFloat(precio.toString().replace(',', '.'));
+    const cleaned = precio.toString().replace(/,/g, '');
+    const precioNum = parseFloat(cleaned);
+
     if (isNaN(precioNum)) {
       setError("El Precio debe ser un número válido.");
       setSuccess("");
@@ -51,7 +53,7 @@ function CargarProductos({ productos, setProductos }) {
       nombre: nombre.trim(),
       sku: sku.trim(),
       stock: Number(stock),
-      precio: precioNum, // ya es float válido
+      precio: precioNum, 
     };
     setProductos((prev) => [...prev, nuevoProducto]);
 
@@ -100,14 +102,13 @@ function CargarProductos({ productos, setProductos }) {
           <input
             className="input"
             placeholder="Precio"
-            type="number"
-            min="0"
-            step="0.01" /* permite decimales, el separador interno será punto */
+            type="text"                  
             value={precio}
             onChange={(e) => {
-              // convertir coma a punto para que el input numérico acepte la cifra
-              const val = e.target.value.replace(',', '.');
-              setPrecio(val);
+              const val = e.target.value;
+              if (/^[0-9.,]*$/.test(val)) {
+                setPrecio(val);
+              }
             }}
           />
         </div>
