@@ -1,6 +1,6 @@
 .stock-container {
-  margin-top: 30px;
-  padding: 30px;
+  margin-top: clamp(20px, 3vw, 30px);
+  padding: clamp(20px, 3vw, 30px);
   border-radius: 20px;
   background: #12171e;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -9,27 +9,34 @@
 }
 
 .stock-container h3 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: clamp(15px, 2vw, 20px);
+  font-size: clamp(1.5rem, 3vw, 22px);
   color: #38bdf8;
 }
 
 .stock-form {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .stock-form {
+    flex-direction: column;
+  }
 }
 
 .stock-form select,
 .stock-form input {
-  padding: 10px 14px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 14px);
   border-radius: 10px;
   border: none;
   background: #334155;
   color: white;
-  font-size: 16px;
-  min-width: 120px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  min-width: clamp(100px, 70vw, 120px);
 }
 
 .stock-form select:focus,
@@ -40,7 +47,7 @@
 }
 
 .stock-form button {
-  padding: 12px 20px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 20px);
   border-radius: 10px;
   border: none;
   background: #22c55e;
@@ -48,6 +55,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  font-size: clamp(14px, 1.5vw, 16px);
+  min-width: 100px;
 }
 
 .stock-form button:hover {
@@ -55,11 +64,18 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 480px) {
+  .stock-form button {
+    width: 100%;
+  }
+}
+
 .stock-error {
   color: #ef4444;
-  margin-bottom: 15px;
+  margin-bottom: clamp(10px, 2vw, 15px);
   font-weight: bold;
   background: rgba(239,68,68,0.1);
-  padding: 8px 12px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 12px);
   border-radius: 6px;
+  font-size: clamp(12px, 1.5vw, 14px);
 }

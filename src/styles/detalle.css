@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: clamp(10px, 2vw, 20px);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .typing-wrapper {
@@ -16,7 +16,19 @@
   height: 30px;
   position: relative;
   z-index: 4;
-  transform: scale(3); 
+  transform: scale(clamp(1.5, 3vw, 3));
+}
+
+@media (max-width: 768px) {
+  .typing-indicator {
+    transform: scale(clamp(1, 2vw, 2));
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-indicator {
+    transform: scale(1.5);
+  }
 }
 
 .typing-circle {
@@ -105,34 +117,47 @@
   width: 100%;
   max-width: 700px;
   border-radius: 20px;
-  padding: 40px;
+  padding: clamp(20px, 4vw, 40px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   color: white;
   animation: fadeIn 0.4s ease-in-out;
 }
 
+@media (max-width: 768px) {
+  .detalle-card {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-card {
+    padding: clamp(15px, 3vw, 20px);
+  }
+}
+
 .detalle-title {
-  font-size: 28px;
+  font-size: clamp(1.5rem, 4vw, 28px);
   margin-bottom: 10px;
 }
 
 .detalle-sku {
   opacity: 0.7;
   margin-bottom: 20px;
+  font-size: clamp(13px, 1.5vw, 14px);
 }
 
 .detalle-stock {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 18px);
   margin-bottom: 20px;
 }
 
 .detalle-stock strong {
-  font-size: 22px;
+  font-size: clamp(18px, 2.5vw, 22px);
   color: #38bdf8;
 }
 
 .detalle-precio {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 18px);
   margin-bottom: 30px;
 }
 
@@ -141,25 +166,28 @@
 }
 
 .detalle-section h3 {
-  margin-bottom: 15px;
-  font-size: 20px;
+  margin-bottom: clamp(10px, 2vw, 15px);
+  font-size: clamp(16px, 2.5vw, 20px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
   padding-bottom: 8px;
 }
 
-.historial-list {
-  list-style: none;
-  padding: 0;
-}
-
 .historial-item {
   background: #0f172a;
-  padding: 15px;
+  padding: clamp(10px, 2vw, 15px);
   border-radius: 12px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: clamp(12px, 1.5vw, 14px);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .historial-item {
+    flex-direction: column;
+  }
 }
 
 .historial-item.entrada {
@@ -174,15 +202,23 @@
   margin-top: 30px;
   background: #a31919;
   border: none;
-  padding: 10px 20px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(15px, 2vw, 20px);
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
+  font-size: clamp(14px, 1.5vw, 16px);
+  width: auto;
 }
 
 .volver-btn:hover {
   background: #e9450e;
+}
+
+@media (max-width: 480px) {
+  .volver-btn {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
@@ -203,44 +239,37 @@
 }
 
 .historial-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: clamp(10px, 2vw, 15px);
+  font-size: clamp(15px, 2.2vw, 18px);
   color: #38bdf8;
 }
 
 .sin-movimientos {
   opacity: 0.6;
   font-style: italic;
-  padding: 15px;
+  padding: clamp(10px, 2vw, 15px);
   text-align: center;
-}
-
-.historial-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 .movimiento {
   background: #0f172a;
-  padding: 12px 15px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(10px, 1.5vw, 15px);
   border-radius: 10px;
   margin-bottom: 8px;
   display: flex;
   gap: 12px;
   align-items: center;
-  font-size: 13px;
+  font-size: clamp(11px, 1.3vw, 13px);
   border-left: 4px solid #38bdf8;
+  flex-wrap: wrap;
 }
 
-.movimiento.entrada {
-  border-left: 4px solid #22c55e;
-  background: rgba(34, 197, 94, 0.05);
-}
-
-.movimiento.salida {
-  border-left: 4px solid #ef4444;
-  background: rgba(239, 68, 68, 0.05);
+@media (max-width: 480px) {
+  .movimiento {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .tipo-badge {
@@ -250,23 +279,11 @@
   border-radius: 4px;
   min-width: 70px;
   text-align: center;
-}
-
-.movimiento.entrada .tipo-badge {
-  color: #22c55e;
-}
-
-.movimiento.salida .tipo-badge {
-  color: #ef4444;
-}
-
-.cantidad {
-  flex: 1;
-  opacity: 0.9;
+  font-size: clamp(10px, 1.2vw, 12px);
 }
 
 .fecha {
   opacity: 0.6;
-  font-size: 12px;
+  font-size: clamp(10px, 1.2vw, 12px);
   white-space: nowrap;
 }

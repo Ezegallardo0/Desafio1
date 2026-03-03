@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   color: white;
-  padding:  20px;
+  padding: clamp(15px, 2vw, 20px);
 }
 
 .form-container h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 4vw, 28px);
+  margin-bottom: clamp(15px, 2vw, 20px);
   color: #38bdf8;
 }
 
@@ -18,20 +18,26 @@
   width: 100%;
   max-width: 600px;
   border-radius: 20px;
-  padding: 30px;
+  padding: clamp(20px, 3vw, 30px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: clamp(10px, 2vw, 15px);
   animation: fadeIn 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .form-container form {
+    max-width: 95%;
+  }
 }
 
 .form-container input {
   width: 100%;
-  padding: 12px 15px;
+  padding: clamp(10px, 1.5vw, 12px) clamp(12px, 1.5vw, 15px);
   border-radius: 10px;
   border: none;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   background: #334155;
   color: white;
   transition: 0.3s;
@@ -45,19 +51,19 @@
 }
 
 .form-container button {
-  padding: 12px;
+  padding: clamp(10px, 1.5vw, 12px);
   border-radius: 10px;
   border: none;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   transition: 0.3s;
 }
 
 .form-container form button[type="submit"] {
   background: #22c55e;
   color: white;
-  margin-top: 10px;
+  margin-top: clamp(8px, 1vw, 10px);
 }
 
 .form-container form button[type="submit"]:hover {
@@ -70,7 +76,7 @@
   color: white;
   width: 100%;
   max-width: 600px;
-  margin-top: 15px;
+  margin-top: clamp(10px, 2vw, 15px);
 }
 
 .form-container > button:hover {
@@ -78,14 +84,21 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 768px) {
+  .form-container > button {
+    max-width: 95%;
+  }
+}
+
 .error {
   color: #ef4444;
   font-weight: bold;
-  padding: 10px 15px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 1.5vw, 15px);
   background: rgba(239, 68, 68, 0.1);
   border-radius: 8px;
   border-left: 4px solid #ef4444;
-  margin-bottom: 15px;
+  margin-bottom: clamp(10px, 2vw, 15px);
+  font-size: clamp(12px, 1.5vw, 14px);
 }
 
 @keyframes fadeIn {

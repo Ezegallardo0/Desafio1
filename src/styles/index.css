@@ -1,11 +1,36 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
   color-scheme: light dark;
   background-color: #242424;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
   text-decoration: inherit;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: clamp(14px, 2vw, 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: clamp(12px, 1.8vw, 14px);
+  }
 }
