@@ -8,7 +8,6 @@
   margin: 0;
 }
 
-/* Navbar Container */
 .button-container {
   display: flex;
   background: #12171e;
@@ -46,7 +45,6 @@
   }
 }
 
-/* ===== MÓVIL - DISEÑO RESPONSIVO ===== */
 @media (max-width: 480px) {
   .button-container {
     flex-direction: column;
@@ -58,7 +56,6 @@
   }
 }
 
-/* Botones individuales */
 .button {
   outline: 0 !important;
   border: 0 !important;
@@ -74,24 +71,11 @@
   transition: transform 0.3s ease;
 }
 
-.button:hover {
-  transform: translateY(-3px);
-}
-
-/* Iconos */
 .icon {
-  width: clamp(20px, 4vw, 30px);
-  height: clamp(20px, 4vw, 30px);
   flex-shrink: 0;
   color: #f0efef;
 }
 
-/* Grupo de búsqueda */
-.group {
-  display: flex;
-  align-items: center;
-  transition: all 0.4s ease;
-}
 
 .group .input {
   width: 0;
@@ -133,7 +117,6 @@
   }
 }
 
-/* Input Search */
 .input::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
@@ -143,7 +126,6 @@
   appearance: none;
 }
 
-/* Botón de búsqueda */
 .search-btn {
   flex-shrink: 0;
   z-index: 2;
@@ -157,41 +139,6 @@
     order: 2;
   }
 }
-
-/* Controles de navegación */
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: clamp(8px, 2vw, 12px);
-  margin-left: clamp(10px, 2vw, 20px);
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.nav-controls label {
-  color: #f0efef;
-  font-size: clamp(12px, 1.5vw, 14px);
-  white-space: nowrap;
-}
-
-.nav-controls select {
-  padding: clamp(4px, 1vw, 6px) clamp(6px, 1.5vw, 10px);
-  border-radius: 6px;
-  border: none;
-  background: #1c222b;
-  color: #f0efef;
-  font-size: clamp(12px, 1.5vw, 14px);
-}
-
-@media (max-width: 480px) {
-  .nav-controls {
-    gap: 6px;
-    margin-left: 0;
-    width: 100%;
-    justify-content: center;
-  }
-}
-
 /* Botones pequeños (Más, Exportar, Importar) */
 .button.small {
   width: auto;
