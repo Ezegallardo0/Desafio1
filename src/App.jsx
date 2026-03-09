@@ -6,6 +6,7 @@ import ProductEditForm from "./components/editar.jsx";
 import Home from "./components/home.jsx";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
+import ProduHome from "./components/productos.jsx";
 
 function App() {
   const [historial, setHistorial] = useState(() => {
@@ -66,6 +67,7 @@ function App() {
             productos={productos}
             historial={historial}
             moverStock={moverStock} />} />
+        <Route path="/producto" element={<ProduHome />} />
       </Routes>
     </main>
   );
