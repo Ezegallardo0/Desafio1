@@ -3,14 +3,14 @@ import Card from "./productcard";
 import { Link } from "react-router-dom";
 import "../styles/home.css"
 
-function Home({ productos, setProductos, search, filterLowStock, setFilterLowStock, sortOption, setSortOption }) {
+function Home({ productos, setProductos,  filterLowStock, setFilterLowStock, sortOption, setSortOption }) {
 
 
   const [productoAEliminar, setProductoAEliminar] = useState(null);
 
   let productosFiltrados = productos.filter((producto) =>
-    producto.nombre?.toLowerCase().includes(search.toLowerCase()) ||
-    producto.sku?.toLowerCase().includes(search.toLowerCase())
+    producto.nombre?.toLowerCase() ||
+    producto.sku?.toLowerCase()
   );
 
   if (filterLowStock) {
@@ -36,7 +36,6 @@ function Home({ productos, setProductos, search, filterLowStock, setFilterLowSto
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1 className="home-title">Productos Cargados</h1>
 
         <div className="home-buttons">
 

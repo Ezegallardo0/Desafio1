@@ -1,140 +1,25 @@
-import React, { useState, useRef, useEffect } from "react";
 import "../styles/nav.css";
-import { Link } from "react-router";
 
-function Menu({ search, setSearch, productos, setProductos }) {
-  const [mostrarBuscador, setMostrarBuscador] = useState(false);
-  const buscadorRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        buscadorRef.current &&
-        !buscadorRef.current.contains(event.target)
-      ) {
-        setMostrarBuscador(false);
-      }
-    };
-
-    if (mostrarBuscador) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [mostrarBuscador]);
+function Menu() {
 
   return (
     <>
-      <h1 className="titulo">Inventario360</h1>
       <div className="button-container">
-        <button className="button">
-          <Link to="/">
-            <svg
-              className="icon"
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 1024 1024"
-              height="3em"
-              width="3em"
-            >
-              <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z" />
-            </svg>
-          </Link>
-        </button>
+        <h1 className="titulo">INVENTARIO 360</h1>
+        <div className="icons">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-bell-icon lucide-bell"><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+          </svg> 
+          <h2 className="icons">Notificaciones</h2>
 
-        <div ref={buscadorRef} className={`group ${mostrarBuscador ? "active" : ""}`}>
-          <input
-            className="input"
-            type="search"
-            placeholder="Buscar..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"  stroke-linejoin="round" className="lucide lucide-flag-triangle-right-icon lucide-flag-triangle-right"><path d="M6 22V2.8a.8.8 0 0 1 1.17-.71l11.38 5.69a.8.8 0 0 1 0 1.44L6 15.5" /></svg>
+          <h2>Reportes</h2>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-settings-icon lucide-settings"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>
+          <h2>Ajustes</h2>
         </div>
-        <button
-          className="button search-btn"
-          onClick={() => setMostrarBuscador(!mostrarBuscador)}
-        >
-          <svg
-            className="icon"
-            stroke="currentColor"
-            fill="none"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            height="3em"
-            width="3em"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </button>
-        <div className="dropdown">
-          <button
-            className="button small"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            Más
-          </button>
-          {menuOpen && (
-            <div className="dropdown-content">
-              <button
-                className="button small"
-                onClick={() => {
-                  const json = JSON.stringify(productos, null, 2);
-                  window.prompt("Copiar datos JSON", json);
-                  setMenuOpen(false);
-                }}
-              >Exportar</button>
-              <button
-                className="button small"
-                onClick={() => {
-                  const text = window.prompt("Pegar JSON para importar");
-                  try {
-                    const data = JSON.parse(text);
-                    if (Array.isArray(data)) {
-                      setProductos(data);
-                    } else {
-                      alert("Formato inválido");
-                    }
-                  } catch {
-                    alert("JSON inválido");
-                  }
-                  setMenuOpen(false);
-                }}
-              >Importar</button>
-            </div>
-          )}
-        </div>
-      
-      <button className="button">
-        <Link to="/cargarproducto">
-          <svg
-            className="icon"
-            stroke="currentColor"
-            fill="none"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            height="3em"
-            width="3em"
-          >
-            <circle cx="9" cy="21" r="1" />
-            <circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-          </svg>
-        </Link>
-      </button>
-    </div >
+      </div >
     </>
   );
 }
-
+//reportes
 export default Menu;

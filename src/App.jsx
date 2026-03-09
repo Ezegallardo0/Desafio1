@@ -8,8 +8,6 @@ import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-
-  const [search, setSearch] = useState("");
   const [filterLowStock, setFilterLowStock] = useState(false);
   const [sortOption, setSortOption] = useState("none");
   const [historial, setHistorial] = useState(() => {
@@ -58,8 +56,6 @@ function App() {
   return (
     <main>
       <Menu
-        search={search}
-        setSearch={setSearch}
         productos={productos}
         setProductos={setProductos}
       />
@@ -68,7 +64,6 @@ function App() {
           <Home
             productos={productos}
             setProductos={setProductos}
-            search={search}
             filterLowStock={filterLowStock}
             setFilterLowStock={setFilterLowStock}
             sortOption={sortOption}

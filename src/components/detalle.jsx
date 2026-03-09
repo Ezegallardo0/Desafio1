@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import '../styles/detalle.css'
 import StockMovementForm from "../components/StockMovementForm";
 
@@ -7,7 +7,6 @@ function DetalleProducto({productos, historial, moverStock}) {
   const navigate = useNavigate();
   const producto = productos.find((p) => p.id === id);
   
-  // Filtrar movimientos del producto actual
   const movimientosProducto = historial.filter(mov => mov.productoId === id);
 
   if(!producto) return <p>Producto no encontrado.</p>
