@@ -8,8 +8,6 @@ import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [filterLowStock, setFilterLowStock] = useState(false);
-  const [sortOption, setSortOption] = useState("none");
   const [historial, setHistorial] = useState(() => {
     const data = localStorage.getItem("historial");
     return data ? JSON.parse(data) : [];
@@ -60,16 +58,7 @@ function App() {
         setProductos={setProductos}
       />
       <Routes>
-        <Route path="/" element={
-          <Home
-            productos={productos}
-            setProductos={setProductos}
-            filterLowStock={filterLowStock}
-            setFilterLowStock={setFilterLowStock}
-            sortOption={sortOption}
-            setSortOption={setSortOption}
-          />
-        } />
+        <Route path="/" element={<Home /> } />
         <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
         <Route path="/editar/:id" element={<ProductEditForm  productos={productos} setProductos={setProductos} />} />
         <Route path="/producto/:id" element={
