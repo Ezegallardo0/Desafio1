@@ -7,7 +7,7 @@
 
 .button-container {
   display: flex;
-  background-image: linear-gradient(to right, #072561 0%, #15387d 0% , #40609f 100%);
+  background-image: linear-gradient(to left, #60a8e4 0%, #085fe1 100%);
   width: 100%;
   align-items: center;
   justify-content: space-between; 

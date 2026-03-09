@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import '../styles/detalle.css'
-import StockMovementForm from "../components/StockMovementForm";
+import StockMovementForm from "./StockMovementForm";
 
 function DetalleProducto({productos, historial, moverStock}) {
   const { id } = useParams();
