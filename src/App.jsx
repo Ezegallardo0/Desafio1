@@ -59,7 +59,9 @@ function App() {
         setProductos={setProductos}
       />
       <Routes>
-        <Route path="/" element={<Home /> } />
+        <Route path="/" element={<Home 
+            productos={productos}
+            historial={historial} /> } />
         <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
         <Route path="/editar/:id" element={<ProductEditForm  productos={productos} setProductos={setProductos} />} />
         <Route path="/producto/:id" element={
