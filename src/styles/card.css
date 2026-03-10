@@ -1,9 +1,80 @@
-.cardProducto{
-  border-radius: 10px;
-  background-color: #CDDCDC;
- background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
- background-blend-mode: screen, overlay;
-  padding: 20px;
-  margin-top: 20px;
-  
+.card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 288px;
+  min-height: 170px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  border: 1px solid #e5e7eb;
+  gap: 4px;
+}
+
+.card-price {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.action:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.edit-icon {
+  stroke: #15803d;
+}
+
+.delete-icon {
+  stroke: #b91c1c;
+}
+
+.edit button {
+  color: #15803d;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete button {
+  color: #b91c1c;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

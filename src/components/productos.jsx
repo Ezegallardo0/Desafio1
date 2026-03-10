@@ -1,7 +1,16 @@
-import ProductCard from "./productcard"
+import ProductCard from "./ProductCard.jsx"
 import "../styles/produhome.css"
 import { Link } from "react-router"
-function ProduHome({ productos }) {
+function ProduHome({ productos, setProductos }) {
+
+    const handleDelete = (id) =>{
+        setProductos((prev) =>{
+            const nuevos = prev.filter((p) => p.id !==id)
+            localStorage.setItem("productos", JSON.stringify(nuevos))
+            return nuevos
+        })
+        console.log("Borrando:", id);
+    }
     return (
         <>
             <div className="navegacion">
@@ -20,6 +29,7 @@ function ProduHome({ productos }) {
                     <ProductCard
                         key={producto.id}
                         producto={producto}
+                        onDelete={handleDelete}
                     />
                 ))}
             </div>

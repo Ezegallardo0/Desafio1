@@ -39,7 +39,6 @@ function ProductEditForm() {
 
         const productos = JSON.parse(localStorage.getItem("productos")) || [];
 
-        // Validaciones
         if (!producto.nombre.trim()) {
             setError("El nombre es obligatorio.");
             return;
@@ -54,8 +53,6 @@ function ProductEditForm() {
             setError("El precio no puede ser negativo.");
             return;
         }
-
-        // Validar SKU único (excepto el mismo producto)
         const skuExiste = productos.some(
             p => p.sku === producto.sku && p.id !== id
         );
@@ -65,7 +62,6 @@ function ProductEditForm() {
             return;
         }
 
-        // Actualizar producto
         const productosActualizados = productos.map(p =>
             p.id === id
                 ? {

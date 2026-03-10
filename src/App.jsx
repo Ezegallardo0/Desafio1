@@ -67,7 +67,7 @@ function App() {
             productos={productos}
             historial={historial}
             moverStock={moverStock} />} />
-        <Route path="/producto" element={<ProduHome productos={productos}/>} />
+        <Route path="/producto" element={<ProduHome productos={productos} setProductos={setProductos}/>} />
       </Routes>
     </main>
   );
