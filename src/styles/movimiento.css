@@ -2,16 +2,15 @@
   margin-top: clamp(20px, 3vw, 30px);
   padding: clamp(20px, 3vw, 30px);
   border-radius: 20px;
-  background: #12171e;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.244);
+  color: rgb(10, 10, 10);
   max-width: 600px;
 }
 
 .stock-container h3 {
   margin-bottom: clamp(15px, 2vw, 20px);
   font-size: clamp(1.5rem, 3vw, 22px);
-  color: #38bdf8;
+  color: #0672de;
 }
 
 .stock-form {
@@ -33,25 +32,24 @@
   padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 14px);
   border-radius: 10px;
   border: none;
-  background: #334155;
-  color: white;
+  background: #d3d2d2;
+  color: rgb(21, 21, 21);
   font-size: clamp(14px, 1.5vw, 16px);
   min-width: clamp(100px, 70vw, 120px);
 }
 
 .stock-form select:focus,
 .stock-form input:focus {
-  outline: none;
-  background: #475569;
-  box-shadow: 0 0 8px #38bdf8;
+  outline: none; 
+  box-shadow: 0 0 8px #191919;
 }
 
 .stock-form button {
   padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 20px);
   border-radius: 10px;
   border: none;
-  background: #22c55e;
-  color: white;
+  background-color: #5cd287;
+  color: rgb(14, 14, 14);
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -60,7 +58,7 @@
 }
 
 .stock-form button:hover {
-  background: #16a34a;
+  background: #309f59;
   transform: translateY(-2px);
 }
 
@@ -71,7 +69,7 @@
 }
 
 .stock-error {
-  color: #ef4444;
+  color: #a81515;
   margin-bottom: clamp(10px, 2vw, 15px);
   font-weight: bold;
   background: rgba(239,68,68,0.1);

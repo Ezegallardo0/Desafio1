@@ -3,9 +3,9 @@
   max-width: 95%;
   padding: clamp(20px, 4vw, 36px);
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(18,23,30,0.9), rgba(28,34,43,0.85));
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  background: linear-gradient(180deg, rgba(199, 208, 222, 0.9), rgba(203, 213, 228, 0.85));
+  border: 1px solid rgba(212, 10, 10, 0.04);
+  box-shadow: 0 8px 30px rgba(56, 56, 56, 0.656), inset 0 1px 0 rgba(255,255,255,0.02);
   margin: clamp(15px, 3vh, 20px) auto;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 
 .text-center {
   text-align: center;
-  color: #f4f7fb;
+  color: #000000;
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   margin-bottom: 6px;
   letter-spacing: 0.4px;
@@ -37,17 +37,11 @@
   padding: clamp(10px, 1.5vw, 14px) clamp(12px, 2vw, 16px);
   font-size: clamp(13px, 1.5vw, 15px);
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: #1c222b;
-  color: #eef2f7;
+  border: 1px solid rgba(13, 13, 13, 0.111);
+  background: #b7b7b8;
+  color: #080808;
   outline: none;
   transition: box-shadow 0.18s ease, transform 0.12s ease;
-}
-
-.input:focus {
-  box-shadow: 0 6px 18px rgba(34,197,94,0.08);
-  transform: translateY(-2px);
-  border-color: rgba(34,197,94,0.18);
 }
 
 .boton {
@@ -58,15 +52,14 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: #22c55e;
-  color: #062e16;
-  box-shadow: 0 8px 20px rgba(34,197,94,0.18);
+  background-color: #7beda5;
+  box-shadow: 0 8px 20px rgb(151, 151, 151);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .boton:hover {
+  background: #16a34a;
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(34,197,94,0.2);
 }
 
 @media (max-width: 480px) {
@@ -76,21 +69,21 @@
 }
 
 .success {
-  background-color: rgba(34,197,94,0.12);
-  color: #b7f5c9;
+  background-color: rgba(22, 105, 52, 0.343);
+  color: #000000;
   padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 12px);
   border-radius: 8px;
   margin-bottom: 6px;
   font-weight: 600;
   text-align: center;
-  border: 1px solid rgba(34,197,94,0.12);
+  border: 1px solid rgba(4, 115, 44, 0.754);
   animation: fadeIn 0.28s ease-in-out;
   font-size: clamp(13px, 1.5vw, 14px);
 }
 
 .error {
   background-color: rgba(255,77,77,0.08);
-  color: #ffd7d7;
+  color: #e49393;
   padding: clamp(8px, 1.5vw, 10px) clamp(10px, 1.5vw, 12px);
   border-radius: 8px;
   margin-bottom: 6px;

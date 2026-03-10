@@ -20,12 +20,13 @@ function ProductEditForm() {
 
         const productos = JSON.parse(localStorage.getItem("productos")) || [];
         const encontrado = productos.find(p => String(p.id) === String(id));
-        
+        console.log("ID de la URL:", id);
+        console.log("Productos:", productos);
         if (!encontrado) {
-            navigate("/");
+            navigate("/producto");
             return;
         }
-        
+
         setProducto({
             nombre: encontrado.nombre || "",
             sku: encontrado.sku || "",
@@ -63,7 +64,7 @@ function ProductEditForm() {
         }
 
         const productosActualizados = productos.map(p =>
-            p.id === id
+            String(p.id) === String(id)
                 ? {
                     ...p,
                     nombre: producto.nombre.trim(),
@@ -78,44 +79,43 @@ function ProductEditForm() {
             JSON.stringify(productosActualizados)
         );
 
-        navigate("/");
+        navigate("/producto");
     };
 
     return (
         <div className="form-container">
-            <h2>Editar Producto</h2>
-
-            {error && <p className="error">{error}</p>}
-
+            
             <form onSubmit={handleSubmit}>
+                {error && <p className="error">{error}</p>}
+                <h2 className="h2">Editar Producto</h2>
                 <input
                     type="text"
                     placeholder="Nombre"
                     value={producto.nombre}
-                    onChange={(e) => setProducto({...producto, nombre: e.target.value})}
+                    onChange={(e) => setProducto({ ...producto, nombre: e.target.value })}
                 />
 
                 <input
                     type="text"
                     placeholder="SKU"
                     value={producto.sku}
-                    onChange={(e) => setProducto({...producto, sku: e.target.value})}
+                    onChange={(e) => setProducto({ ...producto, sku: e.target.value })}
                 />
 
                 <input
                     type="number"
                     placeholder="Precio"
                     value={producto.precio}
-                    onChange={(e) => setProducto({...producto, precio: e.target.value})}
+                    onChange={(e) => setProducto({ ...producto, precio: e.target.value })}
                     min="0"
                 />
 
                 <button type="submit">Guardar Cambios</button>
-            </form>
-
-            <button onClick={() => navigate("/")}>
+                <button type="cancel" className="cancel" onClick={() => navigate("/producto")}>
                 Cancelar
             </button>
+            </form>
+            
         </div>
     );
 }

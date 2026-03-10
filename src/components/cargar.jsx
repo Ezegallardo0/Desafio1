@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../styles/cargar.css'
+import { useNavigate } from "react-router";
 
 function CargarProductos({ productos, setProductos }) {
 
@@ -9,6 +10,7 @@ function CargarProductos({ productos, setProductos }) {
   const [precio, setPrecio] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState("");
+  const  navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -113,6 +115,9 @@ function CargarProductos({ productos, setProductos }) {
           />
         </div>
         <button className="boton" type="submit">Cargar</button>
+        <button onClick={() => navigate("/producto")}>
+                    Cancelar
+                </button>
       </form>
     </div>
   );

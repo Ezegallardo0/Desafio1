@@ -33,7 +33,8 @@
 .card-actions {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   padding-top: 10px;
   border-top: 1px solid #e5e7eb;
 }
@@ -43,7 +44,14 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
   transition: transform 0.2s;
+}
+.action a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .action:hover {
@@ -54,7 +62,6 @@
   width: 22px;
   height: 22px;
 }
-
 .edit-icon {
   stroke: #15803d;
 }
@@ -77,4 +84,36 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.359);
+}
+.detalle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  color: #063f7b;
+  background: #d8d8d88a;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.detalle a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.detalle button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+ color: #063f7b;
 }

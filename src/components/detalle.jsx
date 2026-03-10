@@ -33,7 +33,6 @@ function DetalleProducto({productos, historial, moverStock}) {
           producto={producto}
           moverStock={moverStock} />
 
-        {/* Historial de movimientos */}
         <div className="historial-section">
           <h3>Historial de Movimientos</h3>
           {movimientosProducto.length === 0 ? (
