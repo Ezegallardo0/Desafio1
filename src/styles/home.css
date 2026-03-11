@@ -9,7 +9,7 @@
   color: black;
   padding: 0 20px;
   gap: 20px;
-  align-items: center; 
+  align-items: flex-start; 
   display: flex;
 }
 .produ{
@@ -20,6 +20,16 @@
   padding: 0 20px;
   gap: 20px;
   align-items: center; 
+}
+.info{
+  display: flex;
+  flex-direction: column;
+}
+.info h3{
+  margin: 0;
+}
+.info p{
+  margin-top: 20px ;
 }
 .repo{
   background-color: red;
