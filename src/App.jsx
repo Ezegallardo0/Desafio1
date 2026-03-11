@@ -7,13 +7,13 @@ import Home from "./pages/home.jsx";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import ProduHome from "./pages/productos.jsx";
-import  Selection  from "./components/selection.jsx";
+import Selection from "./components/selection.jsx";
 
 function App() {
   const [historial, setHistorial] = useState(() => {
     const data = localStorage.getItem("historial");
     return data ? JSON.parse(data) : [];
-  })
+  });
   const [productos, setProductos] = useState(() => {
     const data = localStorage.getItem("productos");
     return data ? JSON.parse(data) : [];
@@ -24,54 +24,81 @@ function App() {
   }, [productos]);
   useEffect(() => {
     localStorage.setItem("historial", JSON.stringify(historial));
-  }, [historial])
+  }, [historial]);
 
   const moverStock = (productoId, tipo, cantidad) => {
-    setProductos(prev =>
-      prev.map(p => {
-        if(p.id !== productoId) return p;
-        if(tipo === "salida" && cantidad > p.stock){
+    setProductos((prev) =>
+      prev.map((p) => {
+        if (p.id !== productoId) return p;
+        if (tipo === "salida" && cantidad > p.stock) {
           return p;
         }
         return {
           ...p,
-          stock: tipo === "entrada"
-          ? p.stock + cantidad
-          : p.stock - cantidad
+          stock: tipo === "entrada" ? p.stock + cantidad : p.stock - cantidad,
         };
-      })
+      }),
     );
-    setHistorial(prev =>[
+    setHistorial((prev) => [
       ...prev,
       {
         id: crypto.randomUUID(),
         productoId,
         tipo,
         cantidad,
-        fecha: new Date().toISOString()
-      }
-    ])
-  }
+        fecha: new Date().toISOString(),
+      },
+    ]);
+  };
 
   return (
     <main>
-      <Menu
-        productos={productos}
-        setProductos={setProductos}
-      />
+      <Menu productos={productos} setProductos={setProductos} />
       <Routes>
-        <Route path="/" element={<Home 
-            productos={productos}
-            historial={historial} /> } />
-        <Route path="/cargarproducto" element={<CargarProductos productos={productos} setProductos={setProductos} />} />
-        <Route path="/editar/:id" element={<ProductEditForm  productos={productos} setProductos={setProductos} />} />
-        <Route path="/producto/:id" element={
-          <DetalleProducto
-            productos={productos}
-            historial={historial}
-            moverStock={moverStock} />} />
-        <Route path="/producto" element={<ProduHome productos={productos} setProductos={setProductos}/>} />
-        <Route path="/reponer" element={<Selection productos={productos} setProductos={setProductos} />} />
+        <Route
+          path="/"
+          element={<Home productos={productos} historial={historial} />}
+        />
+        <Route
+          path="/cargarproducto"
+          element={
+            <CargarProductos
+              productos={productos}
+              setProductos={setProductos}
+            />
+          }
+        />
+        <Route
+          path="/editar/:id"
+          element={
+            <ProductEditForm
+              productos={productos}
+              setProductos={setProductos}
+            />
+          }
+        />
+        <Route
+          path="/producto/:id"
+          element={
+            <DetalleProducto
+              productos={productos}
+              historial={historial}
+              moverStock={moverStock}
+            />
+          }
+        />
+        <Route
+          path="/producto"
+          element={
+            <ProduHome productos={productos} setProductos={setProductos} />
+          }
+        />
+        <Route
+          path="/reponer/:tipo"
+          element={
+            <Selection productos={productos} setProductos={setProductos} />
+          }
+        />
       </Routes>
     </main>
   );

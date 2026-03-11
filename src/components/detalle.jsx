@@ -1,15 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import '../styles/detalle.css'
+import "../styles/detalle.css";
 import StockMovementForm from "./StockMovementForm";
 import Historial from "./historial";
 
-function DetalleProducto({productos, historial, moverStock}) {
+function DetalleProducto({ productos, historial, moverStock }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const producto = productos.find((p) => p.id === id);
-  
 
-  if(!producto) return <p>Producto no encontrado.</p>
+  if (!producto) return <p>Producto no encontrado.</p>;
 
   return (
     <div className="detalle-container">
@@ -29,19 +28,14 @@ function DetalleProducto({productos, historial, moverStock}) {
           })}
         </p>
 
-        <StockMovementForm
-          producto={producto}
-          moverStock={moverStock} />
+        <StockMovementForm producto={producto} moverStock={moverStock} />
 
-        <Historial 
-        historial={historial}
-        productos={productos}
-        productoId={producto.id}
+        <Historial
+          historial={historial}
+          productos={productos}
+          productoId={producto.id}
         />
-        <button
-          className="volver-btn"
-          onClick={() => navigate("/")}
-        >
+        <button className="volver-btn" onClick={() => navigate("/")}>
           Volver
         </button>
       </div>

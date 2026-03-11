@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import ProductCard from "./ProductCard";
 
-function Selection({productos}) {
-  const reponer = productos.filter((p) => p.stock > 0 && p.stock <= 5);
-
+function Selection({ productos }) {
+  const { tipo } = useParams();
+  let productosFiltrados = [];
+  if (tipo === "stock-bajo") {
+    productosFiltrados = productos.filter((p) => p.stock > 0 && p.stock <= 5);
+  } else if (tipo === "agotado") {
+    productosFiltrados = productos.filter((p) => p.stock === 0);
+  }
 
   return (
     <>
@@ -28,11 +33,11 @@ function Selection({productos}) {
           <h3>Inicio</h3>
         </Link>
       </div>
-      {reponer.map((producto) => (
+      {productosFiltrados.length === 0 && <p>No hay productos para mostrar.</p>}
+      {productosFiltrados.map((producto) => (
         <ProductCard key={producto.id} producto={producto} />
       ))}
-      
     </>
   );
-};
-export default Selection
+}
+export default Selection;
