@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-import '../styles/cargar.css'
+import "../styles/cargar.css";
 import { useNavigate } from "react-router";
 
 function CargarProductos({ productos, setProductos }) {
-
-  const [nombre, setNombre] = useState('');
-  const [sku, setSku] = useState('');
-  const [stock, setStock] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [error, setError] = useState('');
+  const [nombre, setNombre] = useState("");
+  const [sku, setSku] = useState("");
+  const [stock, setStock] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const  navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!nombre.trim() || !sku.trim() || !stock) {
-      setError('Nombre, SKU y Stock son obligatorios.');
+      setError("Nombre, SKU y Stock son obligatorios.");
       setSuccess("");
       return;
     }
@@ -27,7 +26,7 @@ function CargarProductos({ productos, setProductos }) {
       return;
     }
 
-    const cleaned = precio.toString().replace(/,/g, '');
+    const cleaned = precio.toString().replace(/,/g, "");
     const precioNum = parseFloat(cleaned);
 
     if (isNaN(precioNum)) {
@@ -43,10 +42,10 @@ function CargarProductos({ productos, setProductos }) {
 
     const existe = productos.some(
       (producto) =>
-        producto.sku.trim().toLowerCase() === sku.trim().toLowerCase()
+        producto.sku.trim().toLowerCase() === sku.trim().toLowerCase(),
     );
     if (existe) {
-      setError("El Sku ya existe. Debe ser unico.")
+      setError("El Sku ya existe. Debe ser unico.");
       setSuccess("");
       return;
     }
@@ -55,17 +54,17 @@ function CargarProductos({ productos, setProductos }) {
       nombre: nombre.trim(),
       sku: sku.trim(),
       stock: Number(stock),
-      precio: precioNum, 
+      precio: precioNum,
     };
     setProductos((prev) => [...prev, nuevoProducto]);
 
-    setNombre("")
+    setNombre("");
     setSku("");
     setStock("");
     setPrecio("");
     setError("");
     setSuccess("Producto agregado correctamente ✅");
-  }
+  };
   return (
     <div className="Container">
       <h1 className="text-center">Cargar Producto</h1>
@@ -104,7 +103,7 @@ function CargarProductos({ productos, setProductos }) {
           <input
             className="input"
             placeholder="Precio"
-            type="text"                  
+            type="text"
             value={precio}
             onChange={(e) => {
               const val = e.target.value;
@@ -114,10 +113,10 @@ function CargarProductos({ productos, setProductos }) {
             }}
           />
         </div>
-        <button className="boton" type="submit">Cargar</button>
-        <button onClick={() => navigate("/producto")}>
-                    Cancelar
-                </button>
+        <button className="boton" type="submit">
+          Cargar
+        </button>
+        <button onClick={() => navigate("/producto")}>Cancelar</button>
       </form>
     </div>
   );
