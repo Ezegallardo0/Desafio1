@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/card.css"
+
 function ProductCard({ producto, onDelete }) {
     return (
         <div className="card">

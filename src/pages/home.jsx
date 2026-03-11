@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/home.css";
 import { Link } from "react-router";
+import Historial from "../components/historial";
 
 function Home({ productos, historial }) {
   const totalStock = productos.reduce((acc, p) => acc + p.stock, 0);
@@ -61,12 +62,13 @@ function Home({ productos, historial }) {
             <h3>Stock Bajo</h3>
             <p>{stockBajo}</p>
           </div>
-
-          <div className="reponer">
-            <button className="repo">
-              <h4>Reponer</h4>
-            </button>
-          </div>
+          <Link to="/reponer">
+            <div className="reponer">
+              <button className="repo">
+                <h4>Reponer</h4>
+              </button>
+            </div>
+          </Link>
         </div>
         <div className="produ ">
           <svg
@@ -103,7 +105,7 @@ function Home({ productos, historial }) {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-badge-dollar-sign-icon lucide-badge-dollar-sign"
+            className="lucide lucide-badge-dollar-sign-icon lucide-badge-dollar-sign"
           >
             <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
@@ -115,39 +117,8 @@ function Home({ productos, historial }) {
           </div>
         </div>
       </div>
-      <div className="historial-section">
-        <h3>Movimientos Recientes</h3>
-        <ul className="movimientos-list">
-          <li className="movimiento header">
-            <span>Fecha</span>
-            <span>Tipo</span>
-            <span>Descripcion</span>
-            <span>Cantidad</span>
-          </li>
-
-          {historial.map((mov) => {
-            const producto = productos.find((p) => p.id === mov.productoId);
-
-            return (
-              <li key={mov.id} className={`movimiento ${mov.tipo}`}>
-                <span className="fecha">
-                  {new Date(mov.fecha).toLocaleDateString("es-AR")}
-                </span>
-
-                <span className={`tipo ${mov.tipo}`}>
-                  {mov.tipo === "entrada" ? "Entrada" : "Salida"}
-                </span>
-
-                <span className="descripcion">{producto?.nombre}</span>
-
-                <span className="cantidad">{mov.cantidad}</span>
-              </li>
-            );
-          })}
-        </ul>
-
-        <button className="ver-movimientos">Ver Todos los Movimientos</button>
-      </div>
+      <div  className="histo" ><Historial historial={historial} productos={productos} /></div>
+      
     </>
   );
 }

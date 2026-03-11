@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard.jsx"
+import ProductCard from "../components/ProductCard.jsx"
 import "../styles/produhome.css"
 import { Link } from "react-router"
 function ProduHome({ productos, setProductos }) {

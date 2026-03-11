@@ -3,10 +3,11 @@ import DetalleProducto from "./components/detalle.jsx";
 import Menu from "./components/Nav.jsx";
 import CargarProductos from "./components/cargar.jsx";
 import ProductEditForm from "./components/editar.jsx";
-import Home from "./components/home.jsx";
+import Home from "./pages/home.jsx";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
-import ProduHome from "./components/productos.jsx";
+import ProduHome from "./pages/productos.jsx";
+import  Selection  from "./components/selection.jsx";
 
 function App() {
   const [historial, setHistorial] = useState(() => {
@@ -70,7 +71,7 @@ function App() {
             historial={historial}
             moverStock={moverStock} />} />
         <Route path="/producto" element={<ProduHome productos={productos} setProductos={setProductos}/>} />
-        <Route path="/reponer/:id" element={<Selection productos={productos} setProductos= />} />
+        <Route path="/reponer" element={<Selection productos={productos} setProductos={setProductos} />} />
       </Routes>
     </main>
   );

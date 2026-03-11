@@ -103,12 +103,6 @@
   border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-.historial-section h3 {
-  margin-bottom: clamp(10px, 2vw, 15px);
-  font-size: clamp(15px, 2.2vw, 18px);
-  color: #000000;
-}
-
 .sin-movimientos {
   opacity: 0.6;
   font-style: italic;
