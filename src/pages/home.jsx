@@ -24,7 +24,7 @@ function Home({ productos, historial }) {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              className="lucide lucide-package-icon lucide-package"
+              className="ico lucide lucide-package-icon lucide-package"
             >
               <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" />
               <path d="M12 22V12" />
@@ -33,7 +33,7 @@ function Home({ productos, historial }) {
             </svg>
             <div className="info">
               <h3>Productos en Stock</h3>
-              <p>{totalStock}</p>
+              <p>Stock Total: {totalStock}</p>
             </div>
           </Link>
         </div>
@@ -48,7 +48,7 @@ function Home({ productos, historial }) {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            className="lucide lucide-shield-alert-icon lucide-shield-alert"
+            className="repico lucide lucide-shield-alert-icon lucide-shield-alert"
           >
             <path
               d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
@@ -60,7 +60,7 @@ function Home({ productos, historial }) {
           </svg>
           <div className="info">
             <h3>Stock Bajo</h3>
-            <p>{stockBajo}</p>
+            <p>Productos con Bajo Stock: {stockBajo}</p>
           </div>
           <Link to="/reponer/stock-bajo">
             <div className="reponer">
@@ -71,7 +71,7 @@ function Home({ productos, historial }) {
           </Link>
         </div>
         <div className="produ ">
-          <Link to="/reponer/agotado">
+          <Link  className="link" to="/reponer/agotado">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -82,7 +82,7 @@ function Home({ productos, historial }) {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              className="lucide lucide-package-open-icon lucide-package-open"
+              className="ico lucide lucide-package-open-icon lucide-package-open"
             >
               <path d="M12 22v-9" />
               <path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z" />
@@ -91,7 +91,7 @@ function Home({ productos, historial }) {
             </svg>
             <div className="info">
               <h3>Productos Agotados</h3>
-              <p>{stockAgotado}</p>
+              <p>Productos sin Stock: {stockAgotado}</p>
             </div>
           </Link>
         </div>
@@ -107,7 +107,7 @@ function Home({ productos, historial }) {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            className="lucide lucide-badge-dollar-sign-icon lucide-badge-dollar-sign"
+            className="repico lucide lucide-badge-dollar-sign-icon lucide-badge-dollar-sign"
           >
             <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
@@ -115,7 +115,7 @@ function Home({ productos, historial }) {
           </svg>
           <div className="info">
             <h3>Valor Total de Inventario</h3>
-            <p>{totalDinero}</p>
+            <p>${totalDinero}</p>
           </div>
         </div>
       </div>

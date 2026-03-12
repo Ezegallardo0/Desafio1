@@ -28,7 +28,7 @@ function CargarProductos({ productos, setProductos }) {
 
     const cleaned = precio.toString().replace(/,/g, "");
     const precioNum = parseFloat(cleaned);
-
+    
     if (isNaN(precioNum)) {
       setError("El Precio debe ser un número válido.");
       setSuccess("");
@@ -39,7 +39,6 @@ function CargarProductos({ productos, setProductos }) {
       setSuccess("");
       return;
     }
-
     const existe = productos.some(
       (producto) =>
         producto.sku.trim().toLowerCase() === sku.trim().toLowerCase(),

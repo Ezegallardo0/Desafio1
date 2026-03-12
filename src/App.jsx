@@ -4,7 +4,6 @@ import Menu from "./components/Nav.jsx";
 import CargarProductos from "./components/cargar.jsx";
 import ProductEditForm from "./components/editar.jsx";
 import Home from "./pages/home.jsx";
-import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import ProduHome from "./pages/productos.jsx";
 import Selection from "./components/selection.jsx";
