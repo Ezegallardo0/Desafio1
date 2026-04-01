@@ -115,7 +115,7 @@ function Home({ productos, historial }) {
           </svg>
           <div className="info">
             <h3>Valor Total de Inventario</h3>
-            <p>${totalDinero}</p>
+            <p>${totalDinero.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           </div>
         </div>
       </div>
