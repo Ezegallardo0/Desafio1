@@ -7,7 +7,7 @@ import Home from "./pages/home.jsx";
 import { Route, Routes } from "react-router-dom";
 import ProduHome from "./pages/productos.jsx";
 import Selection from "./components/selection.jsx";
-import CuentaAdmin from "./components/admin.jsx";
+import CuentaAdmin from "./pages/admin.jsx";
 
 function App() {
   const [historial, setHistorial] = useState(() => {

@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
 import "../styles/admin.css";
+import MiPerfil from "../components/perfil";
+import Seguridad from "../components/seguridad";
+import Integraciones from "../components/integraciones";
+import Estadisticas from "../components/estadisticas";
 
-
-const Item = ({ label, value, section, setSection }) => (
-  <button
+const secciones = {
+  perfil: <MiPerfil />,
+  seguridad: <Seguridad />,
+  integraciones: <Integraciones />,
+  estadisticas: <Estadisticas />
+};
+const Item = ({ label, value, section, setSection, open }) => (
+  <li
     onClick={() => setSection(value)}
-    style={{
-      display: "block",
-      width: "100%",
-      padding: "10px",
-      textAlign: "left",
-      background: section === value ? "#dbeafe" : "transparent",
-      border: "none",
-      cursor: "pointer",
-      fontWeight: section === value ? "bold" : "normal",
-    }}
+    className={section === value ? "active" : ""}
   >
-    {label}
-  </button>
+    {open ? label : label.split(' ')[0]}
+  </li>
 );
-
 
 export default function CuentaAdmin() {
   const [open, setOpen] = useState(true);
@@ -44,33 +43,38 @@ export default function CuentaAdmin() {
           ☰
         </button>
 
-        <div style={{ width: "220px" }}>
+        <ul className="menu">
           <Item
-            label="👤 Perfil"
+            label="👤 Mi Perfil"
             value="perfil"
             section={section}
             setSection={setSection}
+            open={open}
           />
           <Item
             label="🔐 Seguridad"
             value="seguridad"
             section={section}
             setSection={setSection}
+            open={open}
           />
           <Item
             label="🔗 Integraciones"
             value="integraciones"
             section={section}
             setSection={setSection}
+            open={open}
           />
           <Item
             label="📊 Estadísticas"
             value="estadisticas"
             section={section}
             setSection={setSection}
+            open={open}
           />
-        </div>
+        </ul>
       </aside>
+      <main className="content">{secciones[section]}</main>
     </div>
   );
 }

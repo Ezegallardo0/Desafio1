@@ -37,10 +37,17 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu li:hover {
   background: rgba(0, 0, 0, 0.1);
+}
+
+.menu li.active {
+  background: #7c96ba;
+  font-weight: bold;
 }
 
 .content {
