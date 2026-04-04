@@ -61,14 +61,12 @@ function Home({ productos, historial }) {
           <div className="info">
             <h3>Stock Bajo</h3>
             <p>Productos con Bajo Stock: {stockBajo}</p>
-          </div>
-          <Link to="/reponer/stock-bajo">
-            <div className="reponer">
+             <Link to="/reponer/stock-bajo">
               <button className="repo">
                 <h4>Reponer</h4>
               </button>
-            </div>
           </Link>
+          </div>
         </div>
         <div className="produ ">
           <Link  className="link" to="/reponer/agotado">
