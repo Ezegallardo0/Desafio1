@@ -52,7 +52,7 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: #7beda5;
+  background-color: #59b77b;
   box-shadow: 0 8px 20px rgb(151, 151, 151);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -67,7 +67,22 @@
     width: 100%;
   }
 }
-
+.cancel{
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 700;
+  height: 4.5vh;
+  border-radius: 12px;
+  outline: none;
+  text-align: center;
+  border: none;
+  box-shadow: 0 8px 20px rgb(151, 151, 151);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+.cancel:hover{
+  background-color: brown;
+  transform: translateY(-3px);
+}
 .success {
   background-color: rgba(22, 105, 52, 0.343);
   color: #000000;

@@ -7,6 +7,7 @@ import Home from "./pages/home.jsx";
 import { Route, Routes } from "react-router-dom";
 import ProduHome from "./pages/productos.jsx";
 import Selection from "./components/selection.jsx";
+import CuentaAdmin from "./components/admin.jsx";
 
 function App() {
   const [historial, setHistorial] = useState(() => {
@@ -98,6 +99,7 @@ function App() {
             <Selection productos={productos} setProductos={setProductos} />
           }
         />
+        <Route path="/cuenta" element={<CuentaAdmin />} />
       </Routes>
     </main>
   );

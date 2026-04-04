@@ -115,7 +115,7 @@ function CargarProductos({ productos, setProductos }) {
         <button className="boton" type="submit">
           Cargar
         </button>
-        <button onClick={() => navigate("/producto")}>Cancelar</button>
+        <button className="cancel" onClick={() => navigate("/producto")}>Cancelar</button>
       </form>
     </div>
   );
