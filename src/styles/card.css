@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: linear-gradient( hsl(217, 20%, 23%));
   width: 288px;
   min-height: 170px;
   border-radius: 8px;
@@ -14,19 +14,19 @@
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  color: #1f2937;
+  color: #fcfcfc;
   margin-bottom: 4px;
 }
 
 .card-title {
   font-size: 16px;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
 }
 
 .card-description {
   font-size: 14px;
-  color: #6b7280;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
@@ -40,6 +40,7 @@
 }
 
 .action {
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -71,7 +72,7 @@
 }
 
 .edit button {
-  color: #15803d;
+  color: #46aa6b;
   font-weight: 600;
   background: none;
   border: none;
@@ -96,8 +97,8 @@
   gap: 6px;
   padding: 8px;
   border-radius: 6px;
-  color: #063f7b;
-  background: #d8d8d88a;
+  color: #ffffff;
+  background: #2a2a2a;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -106,14 +107,15 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
+  
 }
 
 .detalle button {
-  background: none;
+  background:none;
   border: none;
   font-weight: 600;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
- color: #063f7b;
+ color: #ffffff;
 }

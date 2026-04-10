@@ -6,7 +6,7 @@ function Menu() {
     <>
       <div className="button-container">
         <Link to="/">
-          <h1 className="titulo">INVENTARIO 360</h1>
+          <h1 className="titulo">ControlStock</h1>
         </Link>
         <div className="icons">
           <svg

@@ -17,7 +17,7 @@
   border-left:5px solid #1e9bd7;
 }
 .historial-section h3{
-   background: linear-gradient(#3a78b8,#2d63a0);
+   background: linear-gradient(#1f6f87,#138781);
   color:white;
   text-align:center;
   font-weight:bold;
@@ -70,18 +70,21 @@
 
 .ver-movimientos{
   margin-top:12px;
-  background:#1a6bbc;
-  color:white;
+  background:#56bf8a;
+  color:rgb(0, 0, 0);
   border:none;
   padding:8px 16px;
   border-radius:5px;
   cursor:pointer;
   margin-left: 12.5%;
   width: 75%;
+   transition: 0.6s;
 }
 
 .ver-movimientos:hover{
-  background:#1e5fa8;
+  background:#29905c;
+  color: white;
+  transition: 0.6s;
   
 }
 .scroll{
