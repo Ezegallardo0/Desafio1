@@ -1,4 +1,4 @@
-# 📦 Sistema Stock - Gestión de Inventario
+# 📦 ControlStock - Gestión de Inventario
 
 Un sistema moderno y eficiente para gestionar tu inventario de productos. Crea, edita, elimina y monitorea el stock en tiempo real con historial completo de movimientos.
 
